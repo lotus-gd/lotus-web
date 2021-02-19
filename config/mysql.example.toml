@@ -1,0 +1,12 @@
+[database] # MySQL Database Information
+    [database.server] # The database to the main DiffCalc server.
+    host = ""
+    user = ""
+    password = ""
+    database = ""
+
+    [database.web] # The database for the website itself.
+    host = ""
+    user = ""
+    password = ""
+    database = ""

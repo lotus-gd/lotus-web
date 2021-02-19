@@ -1,0 +1,29 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gd-star-pp/website.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gd-star-pp/website/issues"
+  },
+  "homepage": "https://github.com/gd-star-pp/website#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "eta": "^1.12.1",
+    "express": "^4.17.1",
+    "less-middleware": "^3.1.0",
+    "middleware": "^1.0.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.2.5",
+    "toml": "^3.0.0"
+  }
+}
