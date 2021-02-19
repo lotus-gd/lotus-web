@@ -1,7 +1,7 @@
 import aiohttp
 from web import templates
 
-def render(template, **kwargs) -> aiohttp.web.Response:
+def render_template(template, **kwargs) -> aiohttp.web.Response:
     text = templates.get_template(template).render(**kwargs)
     return aiohttp.web.Response(text=text, content_type="text/html")
 
