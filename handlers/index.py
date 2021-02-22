@@ -1,5 +1,5 @@
 import aiohttp
-from utils import text
+import utils
 
 async def index(r: aiohttp.web.RequestHandler):
-    return text(text="test")
+    return utils.render_template("index.html")
