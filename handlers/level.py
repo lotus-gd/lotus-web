@@ -2,4 +2,5 @@ import aiohttp
 import utils
 
 async def level(r: aiohttp.web.RequestHandler):
-    return utils.render_template("level.html")
+    levelname = r.match_info["levelname"]
+    return utils.render_template("level.html", {"levelname": levelname})
