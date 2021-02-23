@@ -13,6 +13,11 @@
 </head>
 <body>
 {% extends "partials/navbar.html" %}
-{% block content %}{% endblock %}
+{% block content %}
+<div class="base--bg" draggable="false">
+    <div class="base--bg-overlay"></div>
+    <img src="{% block background %}{% endblock %}" alt="Background">
+</div>
+{% endblock %}
 </body>
 </html>
