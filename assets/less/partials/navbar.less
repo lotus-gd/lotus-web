@@ -90,6 +90,7 @@
       transform: skewX(10deg);
       border-radius: 0 0 5px 5px;
       border: 2px solid transparent;
+      background-position-y: 2px !important;
       overflow: hidden;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0, 0, 0, 0.04);
 
@@ -104,7 +105,7 @@
       }
 
       &-online {
-        border-color: #00FFAA;
+        background: linear-gradient(to bottom, #00FFAA00, #00FFAAFF);
       }
     }
 
@@ -158,6 +159,7 @@
       z-index: 1;
       transition: background-color .25s;
       cursor: pointer;
+      font-size: 12px;
 
       &:hover {
         background: rgba(0, 0, 0, 0.2);
