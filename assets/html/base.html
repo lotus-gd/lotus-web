@@ -16,7 +16,19 @@
 {% block content %}
 <div class="base--bg" draggable="false">
     <div class="base--bg-overlay"></div>
-    <img src="{% block background %}{% endblock %}" alt="Background">
+    <style>
+        .bg {
+            position: fixed;
+            display: block;
+            width: 100%;
+            height: 100%;
+            max-width: 100vw;
+            max-height: 100vh;
+            z-index: -999999;
+            background-size:100% 100%;
+        }
+    </style>
+    <img src="assets/png/bg.png" alt="Background", class="bg">
 </div>
 {% endblock %}
 </body>
