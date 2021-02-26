@@ -1,4 +1,4 @@
-# Welcome to the official repo for the GDSP Project website!
+# Welcome to the official repo for the Lotus Project website!
 
 you should probably go check the website out lmao
 
