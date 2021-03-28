@@ -1,6 +1,6 @@
 # Welcome to the official repo for the Lotus Project website!
 
-you should probably go check the website out lmao
+you should probably go check the website out lmao [whenever it's done, that is](https://c.ussr.pl/)
 
 Repo card if you wanna add it to your profile:
 
