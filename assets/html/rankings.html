@@ -1,16 +1,46 @@
 {% extends "base.html" %}
 {% block title %}User{% endblock %}
+{% block background %}assets/png/bg.jpg{% endblock %}
 {% block head %}
 {{ super() }}
 <style type="text/css">
     .important {
         color: #336699;
     }
+    .leaderboard {
+        border-radius: 15px;
+        background: #1A1A1A;
+        padding: 1rem;
+        margin: auto;
+        margin-top: 100px;
+        width: 75%;
+        height: 75vh;
+    }
+
+    .leaderboard-pos {
+        border-radius: 10px;
+        padding: 1rem;
+        margin: 1.5rem;
+        background: #262626;
+    }
+
+    .leaderboard-pos-text {
+        padding-bottom: 1.1rem;
+    }
+
+    .leaderboard-big-text {
+        font-size: 2.5rem;
+        text-align: center;
+        padding: 1rem;
+    }
 </style>
 {% endblock %}
 {% block content %}
-<h1>Index</h1>
-<p class="important">
-    Welcome to the level page.
-</p>
+{{ super() }}
+<div class="leaderboard">
+    <p class="leaderboard-big-text">Leaderboard</p>
+    {% for score in leaderboard_scores %}
+        <div class="leaderboard-pos"><div class="leaderboard-pos-text"><span style="float: left;">#{{ loop.index }} {{ score.username }}</span><span style="float: right;">{{ score.pp }}pp</span></div></div>
+    {% endfor %}
+</div>
 {% endblock %}
