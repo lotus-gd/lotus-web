@@ -4,7 +4,7 @@ import importlib
 routes = {"/": "index",
           "/users/{username}": "user",
           "/rankings": "rankings",
-          "/level/{levelname}": "level"
+          "/level/{levelname}": "level",
           "/search": "search"}
 
 def add_all_routes(app: aiohttp.web.Application):
