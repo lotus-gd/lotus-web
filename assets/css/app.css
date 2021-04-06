@@ -181,6 +181,7 @@ a {
   transition: background-color 0.25s;
   cursor: pointer;
   font-size: 12px;
+  outline:none;
 }
 .navbar--search-icon:hover {
   background: rgba(0, 0, 0, 0.2);

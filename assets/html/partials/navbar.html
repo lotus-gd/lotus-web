@@ -35,12 +35,14 @@
                     src="https://alten.s-ul.eu/ffuEv8ou.png" alt="Profile Picture"/></div>
             <p>Laica</p>
         </div>
+        <form action="/search">
         <div class="navbar--search navbar--search-active">
-            <div class="navbar--search-icon"><i class="fas fa-search"></i></div>
+            <div class="navbar--search-icon"><button type="submit" class="navbar--search-icon"><i class="fas fa-search"></i></button></div>
             <div class="navbar--search-field-container">
-                <input type="text" placeholder="Search" class="navbar--search-field">
+                <input type="text" placeholder="Search" name="search" class="navbar--search-field">
             </div>
         </div>
+        </form>
     </div>
 </div>
 {% block content %}{% endblock %}
