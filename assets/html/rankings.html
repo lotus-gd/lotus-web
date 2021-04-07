@@ -13,7 +13,7 @@
         padding: 1rem;
         margin: auto;
         margin-top: 100px;
-        width: 65%;
+        width: 60%;
         height: 75vh;
     }
 
@@ -22,16 +22,27 @@
         padding: 1rem;
         margin: 1.5rem;
         background: #262626;
+        padding-bottom: 1.1rem;
     }
 
     .leaderboard-pos-text {
-        padding-bottom: 1.1rem;
+        font-size: 1.75rem;
+        float: left;
+        position: relative;
+        bottom: 0.5rem;
     }
 
     .leaderboard-big-text {
         font-size: 2.5rem;
         text-align: center;
         padding: 1rem;
+    }
+
+    .leaderboard-username-text {
+        font-size: 1.25rem;
+        position: relative;
+        left: 0.75rem;
+        bottom: 0.125rem;
     }
 </style>
 {% endblock %}
@@ -40,7 +51,7 @@
 <div class="leaderboard">
     <p class="leaderboard-big-text">Leaderboard</p>
     {% for score in leaderboard_scores %}
-        <div class="leaderboard-pos"><div class="leaderboard-pos-text"><span style="float: left;">#{{ loop.index }} {{ score.username }}</span><span style="float: right;">{{ score.pp }}pp</span></div></div>
+        <div class="leaderboard-pos"><span class="leaderboard-pos-text">#{{ loop.index }}</span><span class="leaderboard-username-text">{{ score.username }}</span><span style="float: right;">{{ score.pp }}pp</span></div>
     {% endfor %}
 </div>
 {% endblock %}
