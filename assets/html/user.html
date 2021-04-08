@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block title %}User{% endblock %}
+{% block background %}assets/png/bg.jpg{% endblock %}
 {% block head %}
 {{ super() }}
 <style type="text/css">
@@ -9,6 +10,7 @@
 </style>
 {% endblock %}
 {% block content %}
+{{ super() }}
 <h1>Index</h1>
 <p class="important">
     Welcome to the userpage.

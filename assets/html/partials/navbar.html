@@ -3,23 +3,26 @@
         <div class="navbar--layout-home">
             <i class="icon-community"></i>
         </div>
-        <a class="navbar--layout-item navbar--layout-item-active" href="#">
+        <a class="navbar--layout-item navbar--layout-item-active" href="/">
             <i class="fas fa-home navbar--layout-icon"></i>
             <p class="navbar--layout-text">Home</p>
         </a>
+         <!-- level search -->
         <a class="navbar--layout-item" href="#">
             <i class="icon-level navbar--layout-icon"></i>
             <p class="navbar--layout-text">Level</p>
         </a>
-        <a class="navbar--layout-item" href="#">
+        <a class="navbar--layout-item" href="/rankings">
             <i class="icon-rankings navbar--layout-icon"></i>
             <p class="navbar--layout-text">Rankings</p>
         </a>
+        <!-- this page lead to nowhere atm -->
         <!-- This can be removed if we don't have any plans -->
         <a class="navbar--layout-item" href="#">
             <i class="icon-community navbar--layout-icon"></i>
             <p class="navbar--layout-text">Community</p>
         </a>
+        <!-- this page lead to nowhere atm -->
         <a class="navbar--layout-item" href="#">
             <i class="fas fa-life-ring navbar--layout-icon"></i>
             <p class="navbar--layout-text">Help</p>
@@ -32,12 +35,14 @@
                     src="https://alten.s-ul.eu/ffuEv8ou.png" alt="Profile Picture"/></div>
             <p>Laica</p>
         </div>
+        <form action="/search">
         <div class="navbar--search navbar--search-active">
-            <div class="navbar--search-icon"><i class="fas fa-search"></i></div>
+            <div class="navbar--search-icon"><button type="submit" class="navbar--search-icon"><i class="fas fa-search"></i></button></div>
             <div class="navbar--search-field-container">
-                <input type="text" placeholder="Search" class="navbar--search-field">
+                <input type="text" placeholder="Search" name="search" class="navbar--search-field">
             </div>
         </div>
+        </form>
     </div>
 </div>
 {% block content %}{% endblock %}

@@ -1,7 +1,11 @@
 import aiohttp
 import importlib
 
-routes = {"/": "index", "/users/{username}": "user", "/rankings": "rankings", "/level/{levelname}": "level"}
+routes = {"/": "index",
+          "/users/{username}": "user",
+          "/rankings": "rankings",
+          "/level/{levelname}": "level",
+          "/search": "search"}
 
 def add_all_routes(app: aiohttp.web.Application):
     for route, modulename in routes.items():
