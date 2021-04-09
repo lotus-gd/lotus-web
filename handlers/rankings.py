@@ -2,11 +2,11 @@ import aiohttp
 import utils
 import operator
 from common import Account
-from common import leaderboard
+from common import leaderboardhelper
 
 async def rankings(r: aiohttp.web.RequestHandler):
-    #await leaderboard.refresh_leaderboards() # broken rn
-    scores = list(await leaderboard.get_top_100())
+    #await leaderboardhelper.refresh_leaderboards() # broken rn
+    scores = list(await leaderboardhelper.get_top_100())
     scores.sort()
     rankings = []
     # we need to get the username and the pp (its just the id rn)
