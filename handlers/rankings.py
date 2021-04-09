@@ -1,8 +1,7 @@
 import aiohttp
 import utils
 import operator
-from common import Account
-from common import leaderboardhelper
+from common import Account, leaderboardhelper, userhelper
 
 async def rankings(r: aiohttp.web.RequestHandler):
     #await leaderboardhelper.refresh_leaderboards() # broken rn
@@ -11,5 +10,7 @@ async def rankings(r: aiohttp.web.RequestHandler):
     rankings = []
     # we need to get the username and the pp (its just the id rn)
     for score in scores:
-        rankings.append(Account(username="not available", pp="not available"))
+        print(score[0])
+        user = userhelper.get_user(score[0])
+        rankings.append(Account(username=user.username, pp=user.pp))
     return utils.render_template("rankings.html", leaderboard_scores=rankings)
