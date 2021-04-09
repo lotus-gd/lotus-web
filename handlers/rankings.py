@@ -2,11 +2,14 @@ import aiohttp
 import utils
 import operator
 from common import Account
+from common import leaderboard
 
 async def rankings(r: aiohttp.web.RequestHandler):
-    scores = [Account(username="spookybear0", pp=1), Account(username="RealistikDash", pp=1000), Account(username="Laica", pp=100), Account(username="Electro", pp=2001)]
-    
-    scores.sort(key=operator.attrgetter("pp"))
-    scores.reverse()
-    
-    return utils.render_template("rankings.html", leaderboard_scores=scores)
+    #await leaderboard.refresh_leaderboards() # broken rn
+    scores = list(await leaderboard.get_top_100())
+    scores.sort()
+    rankings = []
+    # we need to get the username (its just the id rn)
+    for score in scores:
+        rankings.append(Account(username=score[1], pp=score[0]))
+    return utils.render_template("rankings.html", leaderboard_scores=rankings)
