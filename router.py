@@ -6,11 +6,16 @@ routes = {"/": "index",
           "/rankings": "rankings",
           "/level/{levelname}": "level",
           "/search": "search",
-          "/login": "login",
-          "/register": "register"}
+          "_/login": "login",
+          "/login": "login_post",
+          "/register": "register",}
 
 def add_all_routes(app: aiohttp.web.Application):
     for route, modulename in routes.items():
+        if route.startswith("_"): route = route.lstrip("_")
         modulepath = modulename.replace("/", ".")
         routesplit = modulename.split("/")
-        app.router.add_get(route, getattr(importlib.import_module("handlers." + modulepath), routesplit[-1]))
+        if "_post" in routesplit[-1]:
+            app.router.add_post(route, getattr(importlib.import_module("handlers." + modulepath.rstrip("_post")), routesplit[-1]))
+        else:
+            app.router.add_get(route, getattr(importlib.import_module("handlers." + modulepath), routesplit[-1]))
