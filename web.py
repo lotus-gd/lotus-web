@@ -1,6 +1,10 @@
 import aiohttp
 import jinja2
 import aiohttp_jinja2
+import base64
+from cryptography import fernet
+from aiohttp_session import setup
+from aiohttp_session.cookie_storage import EncryptedCookieStorage
 import router
 import os
 
@@ -14,6 +18,10 @@ templates = aiohttp_jinja2.setup(app, loader=jinja2.FileSystemLoader("assets/htm
 app.router.add_static("/assets/", path="./assets/", name="assets")
 
 def main():
+    #fernet_key = fernet.Fernet.generate_key()
+    fernet_key = b"jWksJ7QjlsrE3IRcssxcdoYApAK6qGwYOlAbMzvpQ6g="
+    secret_key = base64.urlsafe_b64decode(fernet_key)
+    setup(app, EncryptedCookieStorage(secret_key))
     router.add_all_routes(app)
     aiohttp.web.run_app(app, port=port)
     

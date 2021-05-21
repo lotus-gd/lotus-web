@@ -5,7 +5,9 @@ routes = {"/": "index",
           "/users/{username}": "user",
           "/rankings": "rankings",
           "/level/{levelname}": "level",
-          "/search": "search"}
+          "/search": "search",
+          "/login": "login"
+          "/register": "register"}
 
 def add_all_routes(app: aiohttp.web.Application):
     for route, modulename in routes.items():

@@ -29,12 +29,14 @@
         </a>
     </div>
     <div class="navbar--layout">
+        {% if session.get("logged_in") %}
         <div class="navbar--account">
             <a href="#" class="navbar--account-dropdown"><i class="fas fa-chevron-down"></i></a>
             <div class="navbar--account-image navbar--account-image-online"><img
                     src="https://alten.s-ul.eu/ffuEv8ou.png" alt="Profile Picture"/></div>
             <p>Laica</p>
         </div>
+        {% else %}
         <form action="/search">
         <div class="navbar--search navbar--search-active">
             <div class="navbar--search-icon"><button type="submit" class="navbar--search-icon"><i class="fas fa-search"></i></button></div>
@@ -43,6 +45,13 @@
             </div>
         </div>
         </form>
+        <a style="padding: 1.5rem;" href="/register">
+            <p class="navbar--layout-text">Register</p>
+        </a>
+        <a href="/login">
+            <p class="navbar--layout-text">Login</p>
+        </a>
+        {% endif %}
     </div>
 </div>
 {% block content %}{% endblock %}
