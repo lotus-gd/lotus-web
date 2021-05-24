@@ -15,8 +15,9 @@ async def login(r: aiohttp.web.RequestHandler):
         return aiohttp.web.HTTPFound("/")
     
 async def login_post(r: aiohttp.web.RequestHandler):
-    username = r.rel_url.query["username"]
-    password = r.rel_url.query["password"]
+    data = await r.post()
+    username = data["username"]
+    password = data["password"]
     
     a = await userhelper.get_user_by_name(username)
     b = a.compare_pass(password)

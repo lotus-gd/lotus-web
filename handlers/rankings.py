@@ -7,5 +7,8 @@ async def rankings(r: aiohttp.web.RequestHandler):
     rankings = []
     # we need to get the username and the pp (its just the id rn)
     for score in scores:
-        rankings.append(Account(username=score[0], pp=score[1]))
+        acc = Account(-1)
+        acc.name = score[0]
+        acc.pp = int(score[1])
+        rankings.append(acc)
     return await utils.render_template(r, "rankings.html", leaderboard_scores=rankings)

@@ -14,4 +14,13 @@
 <p class="important">
     Welcome to the login page.
 </p>
+<form class="modal-content animate" action="/login" method="post">
+    <div class="container">
+      <input type="text" placeholder="Username" name="username" required>
+
+      <input type="password" placeholder="Password" name="password" required>
+        
+      <button type="submit">Login</button>
+    </div>
+</form>
 {% endblock %}

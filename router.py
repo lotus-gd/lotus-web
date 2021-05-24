@@ -8,7 +8,8 @@ routes = {"/": "index",
           "/search": "search",
           "_/login": "login",
           "/login": "login_post",
-          "/register": "register",}
+          "_/register": "register",
+          "/register": "register_post"}
 
 def add_all_routes(app: aiohttp.web.Application):
     for route, modulename in routes.items():

@@ -14,4 +14,15 @@
 <p class="important">
     Welcome to the register page.
 </p>
+<form class="modal-content animate" action="/register" method="post">
+    <div class="container">
+      <input type="text" placeholder="Username" name="username" required>
+
+      <input type="password" placeholder="Password" name="password" required>
+
+      <input type="text" placeholder="Email" name="email" required>
+        
+      <button type="submit">Register</button>
+    </div>
+</form>
 {% endblock %}
