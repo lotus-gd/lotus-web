@@ -9,11 +9,11 @@ import router
 import os
 from common import globals
 
-port = 80
+port = 6942
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
-app = aiohttp.web.Application(loop= globals.loop)
+app = aiohttp.web.Application()#loop= globals.loop)
 templates = aiohttp_jinja2.setup(app, loader=jinja2.FileSystemLoader("assets/html"))
 
 app.router.add_static("/assets/", path="./assets/", name="assets")
@@ -29,6 +29,7 @@ def main():
     secret_key = base64.urlsafe_b64decode(fernet_key)
     setup(app, EncryptedCookieStorage(secret_key))
     router.add_all_routes(app)
+    globals.loop.run_until_complete(async_main())
     aiohttp.web.run_app(app, port=port)
     
 if __name__ == "__main__":
