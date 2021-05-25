@@ -6,12 +6,14 @@ from common import userhelper # type: ignore
 async def login(r: aiohttp.web.RequestHandler):
     session = await get_session(r)
     session["logged_in"] = False
+    session["user_id"] = 0
     if session.get("logged_in"):
         return aiohttp.web.HTTPFound("/")
     elif session.get("logged_in") == False: # not None
         return await utils.render_template(r, "login.html")
     else:
         session["logged_in"] = False
+        session["user_id"] = 0
         return aiohttp.web.HTTPFound("/")
     
 async def login_post(r: aiohttp.web.RequestHandler):
@@ -19,6 +21,10 @@ async def login_post(r: aiohttp.web.RequestHandler):
     username = data["username"]
     password = data["password"]
     
-    a = await userhelper.get_user_by_name(username)
-    b = a.compare_pass(password)
-    print(b)
+    user = await userhelper.get_user_by_name(username)
+    if user.compare_pass(password):
+        session = await get_session(r)
+        session["logged_in"] = True
+        session["user_id"] = user.id
+        return aiohttp.web.HTTPFound("/")
+    return utils.text("Invalid username or password")

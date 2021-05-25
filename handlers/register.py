@@ -17,8 +17,6 @@ async def register_post(r: aiohttp.web.RequestHandler):
     password = data["password"]
     email = data["email"]
     
-    print(username, password, email, r.remote)
-    
     await Account.register(username, password, email, r.remote)
     
     return aiohttp.web.HTTPFound("/")
