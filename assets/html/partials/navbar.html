@@ -37,7 +37,7 @@
                     src="https://alten.s-ul.eu/ffuEv8ou.png" alt="Profile Picture"/></div>
             <p>{{ user.name }}</p>
         </div>
-        {% else %}
+        {% endif %}
         <form action="/search">
         <div class="navbar--search navbar--search-active">
             <div class="navbar--search-icon"><button type="submit" class="navbar--search-icon"><i class="fas fa-search"></i></button></div>
@@ -46,6 +46,7 @@
             </div>
         </div>
         </form>
+        {% if not session.get("logged_in") %}
         <a style="padding: 1.5rem;" href="/register">
             <p class="navbar--layout-text">Register</p>
         </a>

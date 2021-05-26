@@ -1,5 +1,5 @@
 import aiohttp
-from web import templates
+from web import templates # type: ignore
 from aiohttp_session import get_session
 from common import userhelper # type: ignore
 
@@ -8,7 +8,6 @@ async def render_template(r, template, *args, **kwargs) -> aiohttp.web.Response:
     # This is not needed as we can just add .html to all
     #if not template.endswith(".html"):
     #    template += ".html"  # make sure we have .html always at the end or else the server will break.
-
     
     session = await get_session(r)
     user = None
