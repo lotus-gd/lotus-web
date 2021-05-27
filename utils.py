@@ -16,5 +16,5 @@ async def render_template(r, template, *args, **kwargs) -> aiohttp.web.Response:
     text = templates.get_template(template).render(*args, **kwargs, session=session, user=user)
     return aiohttp.web.Response(text=text, content_type="text/html")
 
-def text(**kwargs) -> aiohttp.web.Response:
-    return aiohttp.web.Response(**kwargs, content_type="text/html")
+def text(_text, **kwargs) -> aiohttp.web.Response:
+    return aiohttp.web.Response(text=_text, **kwargs)
