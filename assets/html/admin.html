@@ -7,11 +7,101 @@
     .important {
         color: #336699;
     }
+
+    .sidebar {
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background: linear-gradient(180deg, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.76) 100%);
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .sidebar a {
+        display: block;
+        color: white;
+        padding: 16px;
+        text-decoration: none;
+    }
+
+    .sidebar a.active {
+        background-color: #0096FF;
+        color: white;
+    }
+
+    .content {
+        margin-top: 20px;
+        margin-left: 250px;
+    }
+
+    .btn {
+        background-color: #0096FF;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        width: 10rem;
+        height: 5rem;
+    }
+
+    .userlist {
+        border-radius: 15px;
+        background: #1A1A1A;
+        padding: 1rem;
+        margin: auto;
+        width: 60%;
+        height: 65vh;
+    }
+
+    .userlist-pos {
+        border-radius: 10px;
+        padding: 0.5rem;
+        margin: 1.5rem;
+        background: #262626;
+        padding-bottom: 0.5rem;
+    }
+
+    .userlist-username-text {
+        font-size: 1.5rem;
+        position: relative;
+        left: 0.75rem;
+        bottom: 0.125rem;
+    }
+
+    .userlist-pp-text {
+        float: right;
+        right: 1rem;
+        position: relative;
+    }
 </style>
 {% endblock %}
 {% block content %}
-<h1>Index</h1>
-<p class="important">
-    Welcome to the admin page.
-</p>
+<div class="sidebar">
+    <a class="active" href="/admin">Dashboard</a>
+    <a href="/admin/users">Users</a>
+</div>
+<div class="content">
+    <div class="btn">
+        <div>
+            <h2>{{ totalusers }}</h3>
+        </div>
+        <div>
+            <p style="position: relative;bottom: 20px;">Registered Users</p>
+        </div>
+    </div>
+    <div>
+        <h2 style="text-align: center;">Recently registered</h2>
+        <div>
+            <div class="userlist">
+                {% for user in users %}
+                    <div class="userlist-pos"><span class="userlist-username-text">{{ user.name }}</span><span class="userlist-pp-text">{{ user.stats.pp }}pp</span></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
