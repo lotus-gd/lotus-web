@@ -44,10 +44,9 @@
         display: inline-block;
         font-size: 16px;
         border-radius: 5px;
-        width: 10rem;
-        height: 5rem;
+        width: 5rem;
+        height: 2.5rem;
         margin-left: 20px;
-        display: inline-block;
     }
 
     .userlist {
@@ -56,7 +55,7 @@
         padding: 1rem;
         margin: auto;
         width: 60%;
-        height: 65vh;
+        height: 80vh;
     }
 
     .userlist-pos {
@@ -75,50 +74,39 @@
     }
 
     .userlist-pp-text {
-        float: right;
-        right: 1rem;
+        font-size: 1.5rem;
+        left: 7.5rem;
         position: relative;
     }
 
-    .buttons {
-        display: grid;
-        grid-template-columns: 6rem 6rem; 
-        grid-template-rows: 5rem;
-        grid-column-gap: 5rem;
+    .userlist-pp-text-2 {
+        font-size: 1.5rem;
+        left: 12.5rem;
+        position: relative;
     }
 </style>
 {% endblock %}
 {% block content %}
 <div class="sidebar">
-    <a class="active" href="/admin">Dashboard</a>
+    <a href="/admin">Dashboard</a>
     <a href="/admin/users">Users</a>
-    <a href="/admin/badges">Badges</a>
+    <a class="active" href="/admin/badges">Badges</a>
 </div>
 <div class="content">
-    <div class="buttons">
-        <div class="btn">
-            <div>
-                <h2>{{ totalusers }}</h3>
-            </div>
-            <div>
-                <p style="position: relative;bottom: 20px;">Registered users</p>
-            </div>
-        </div>
-        <div class="btn">
-            <div>
-                <h2>0</h3>
-            </div>
-            <div>
-                <p style="position: relative;bottom: 20px;">Levels</p>
-            </div>
-        </div>
-    </div>
     <div>
-        <h2 style="text-align: center;">Recently registered</h2>
+        <h2 style="text-align: center;">Badges</h2>
+        <a href="/admin/badges/create">
+            <div class="btn" style="float: right; position: relative; right: 5rem;">
+                <div>
+                    <p style="position: relative;top: 0.25rem;">New</p>
+                </div>
+            </div>
+        </a>
         <div>
             <div class="userlist">
-                {% for user in users %}
-                    <div class="userlist-pos"><span class="userlist-username-text">{{ user.name }}</span><span class="userlist-pp-text">{{ user.stats.pp }}pp</span></div>
+                <div class="userlist-pos"><span class="userlist-username-text">ID</span><span class="userlist-pp-text">Name</span><span class="userlist-pp-text-2">Colour</span></div>
+                {% for badge in badges %}
+                <div class="userlist-pos"><span class="userlist-username-text">{{ badge.id }}</span><span class="userlist-pp-text" style="left: 9rem;">{{ badge.title }}</span><span class="userlist-pp-text-2"  style="left: 15rem;">{{ badge.colour }}</span></div>
                 {% endfor %}
             </div>
         </div>

@@ -44,10 +44,9 @@
         display: inline-block;
         font-size: 16px;
         border-radius: 5px;
-        width: 10rem;
-        height: 5rem;
+        width: 5rem;
+        height: 2.5rem;
         margin-left: 20px;
-        display: inline-block;
     }
 
     .userlist {
@@ -56,7 +55,7 @@
         padding: 1rem;
         margin: auto;
         width: 60%;
-        height: 65vh;
+        height: 80vh;
     }
 
     .userlist-pos {
@@ -76,52 +75,28 @@
 
     .userlist-pp-text {
         float: right;
-        right: 1rem;
+        right: 5rem;
+        top: 0.25rem;
         position: relative;
-    }
-
-    .buttons {
-        display: grid;
-        grid-template-columns: 6rem 6rem; 
-        grid-template-rows: 5rem;
-        grid-column-gap: 5rem;
     }
 </style>
 {% endblock %}
 {% block content %}
 <div class="sidebar">
-    <a class="active" href="/admin">Dashboard</a>
+    <a href="/admin">Dashboard</a>
     <a href="/admin/users">Users</a>
     <a href="/admin/badges">Badges</a>
 </div>
 <div class="content">
-    <div class="buttons">
-        <div class="btn">
-            <div>
-                <h2>{{ totalusers }}</h3>
-            </div>
-            <div>
-                <p style="position: relative;bottom: 20px;">Registered users</p>
-            </div>
-        </div>
-        <div class="btn">
-            <div>
-                <h2>0</h3>
-            </div>
-            <div>
-                <p style="position: relative;bottom: 20px;">Levels</p>
-            </div>
-        </div>
-    </div>
     <div>
-        <h2 style="text-align: center;">Recently registered</h2>
-        <div>
-            <div class="userlist">
-                {% for user in users %}
-                    <div class="userlist-pos"><span class="userlist-username-text">{{ user.name }}</span><span class="userlist-pp-text">{{ user.stats.pp }}pp</span></div>
-                {% endfor %}
+        <h2 style="text-align: center;">Create new badge</h2>
+        <a href="/admin/badges/create">
+            <div class="btn" style="float: right; position: relative; right: 5rem;">
+                <div>
+                    <p style="position: relative;top: 0.25rem;">New</p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
 </div>
 {% endblock %}

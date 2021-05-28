@@ -47,7 +47,6 @@
         width: 10rem;
         height: 5rem;
         margin-left: 20px;
-        display: inline-block;
     }
 
     .userlist {
@@ -56,13 +55,13 @@
         padding: 1rem;
         margin: auto;
         width: 60%;
-        height: 65vh;
+        height: 80vh;
     }
 
     .userlist-pos {
         border-radius: 10px;
         padding: 0.5rem;
-        margin: 1.5rem;
+        margin: 1rem;
         background: #262626;
         padding-bottom: 0.5rem;
     }
@@ -76,50 +75,32 @@
 
     .userlist-pp-text {
         float: right;
-        right: 1rem;
+        right: 0.25rem;
+        top: 0.25rem;
         position: relative;
-    }
-
-    .buttons {
-        display: grid;
-        grid-template-columns: 6rem 6rem; 
-        grid-template-rows: 5rem;
-        grid-column-gap: 5rem;
     }
 </style>
 {% endblock %}
 {% block content %}
 <div class="sidebar">
-    <a class="active" href="/admin">Dashboard</a>
+    <a href="/admin">Dashboard</a>
     <a href="/admin/users">Users</a>
     <a href="/admin/badges">Badges</a>
 </div>
 <div class="content">
-    <div class="buttons">
-        <div class="btn">
-            <div>
-                <h2>{{ totalusers }}</h3>
-            </div>
-            <div>
-                <p style="position: relative;bottom: 20px;">Registered users</p>
-            </div>
-        </div>
-        <div class="btn">
-            <div>
-                <h2>0</h3>
-            </div>
-            <div>
-                <p style="position: relative;bottom: 20px;">Levels</p>
-            </div>
-        </div>
-    </div>
     <div>
-        <h2 style="text-align: center;">Recently registered</h2>
+        <h2 style="text-align: center;">Viewing user: {{ viewed_user.name }}</h2>
         <div>
             <div class="userlist">
-                {% for user in users %}
-                    <div class="userlist-pos"><span class="userlist-username-text">{{ user.name }}</span><span class="userlist-pp-text">{{ user.stats.pp }}pp</span></div>
-                {% endfor %}
+                <div class="userlist-pos"><span class="userlist-username-text">Username</span><span class="userlist-pp-text">{{ viewed_user.name }}</span></div>
+                <div class="userlist-pos"><span class="userlist-username-text">ID</span><span class="userlist-pp-text">{{ viewed_user.id }}</span></div>
+                <div class="userlist-pos"><span class="userlist-username-text">Email</span><span class="userlist-pp-text">{{ viewed_user.email }}</span></div>
+                <div class="userlist-pos"><span class="userlist-username-text">country</span><span class="userlist-pp-text">{{ viewed_user.country }}</span></div>
+                <div class="userlist-pos"><span class="userlist-username-text">pp</span><span class="userlist-pp-text">{{ viewed_user.stats.pp }}pp</span></div>
+                <div class="userlist-pos"><span class="userlist-username-text">Stars</span><span class="userlist-pp-text">{{ viewed_user.stats.stars }}</span></div>
+                <div class="userlist-pos"><span class="userlist-username-text">Coins</span><span class="userlist-pp-text">{{ viewed_user.stats.coins }}</span></div>
+                <div class="userlist-pos"><span class="userlist-username-text">User coins</span><span class="userlist-pp-text">{{ viewed_user.stats.u_coins }}</span></div>
+                <div class="userlist-pos"><span class="userlist-username-text">Demons</span><span class="userlist-pp-text">{{ viewed_user.stats.demons }}</span></div>
             </div>
         </div>
     </div>

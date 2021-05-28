@@ -85,6 +85,7 @@
 <div class="sidebar">
     <a href="/admin">Dashboard</a>
     <a class="active" href="/admin/users">Users</a>
+    <a href="/admin/badges">Badges</a>
 </div>
 <div class="content">
     <div>
@@ -92,7 +93,7 @@
         <div>
             <div class="userlist">
                 {% for user in users %}
-                    <div class="userlist-pos"><span class="userlist-username-text">{{ user.name }}</span><span class="userlist-pp-text">{{ user.stats.pp }}pp</span><a style="position: relative;text-align: right;float: right;top: 0.25rem;left: 2.5rem;" href="/admin/user/{{ user.id }}"><span>Manage</span></a></div>
+                    <div class="userlist-pos"><span class="userlist-username-text">{{ user.name }}</span><span class="userlist-pp-text">{{ user.stats.pp }}pp</span><a style="position: relative;text-align: right;float: right;top: 0.25rem;left: 2.5rem;" href="/admin/user/{{ user.id }}"><span style="position: relative; right: 0.25rem;">Manage</span></a></div>
                 {% endfor %}
             </div>
         </div>
