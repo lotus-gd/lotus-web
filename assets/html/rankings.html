@@ -57,7 +57,7 @@
 <div class="leaderboard">
     <p class="leaderboard-big-text">Leaderboard</p>
     {% for score in leaderboard_scores %}
-        <div class="leaderboard-pos"><span class="leaderboard-pos-text">#{{ loop.index }}</span><span class="leaderboard-username-text">{{ score.name }}</span><span class="leaderboard-pp-text">{{ score.pp }}pp</span></div>
+        <div class="leaderboard-pos"><span class="leaderboard-pos-text">#{{ loop.index }}</span><span class="leaderboard-username-text">{{ score.name }}</span><span class="leaderboard-pp-text">{{ score.stats.stars }} stars</span></div>
     {% endfor %}
 </div>
 {% endblock %}
