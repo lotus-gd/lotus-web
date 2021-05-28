@@ -63,8 +63,13 @@
 {{ super() }}
 <div class="leaderboard">
     <p class="leaderboard-big-text">Leaderboard</p>
-    {% for user in leaderboard_scores %}
-        <div class="leaderboard-pos"><span class="leaderboard-pos-text">#{{ loop.index }}</span><img class="leaderboard-flag" src="https://osu.ppy.sh/images/flags/{{ user.country }}.png"><span class="leaderboard-username-text">{{ user.name }}</span><span class="leaderboard-pp-text">{{ user.stats.stars }}*</span></div>
+    {% for score in leaderboard_scores %}
+        <div class="leaderboard-pos">
+            <span class="leaderboard-pos-text">#{{ loop.index }}</span>
+            <img class="leaderboard-flag" src="https://osu.ppy.sh/images/flags/{{ score.country }}.png">
+            <span class="leaderboard-username-text">{{ score.name }}</span>
+            <span class="leaderboard-pp-text">{{ score.stats.stars }}*</span>
+        </div>
     {% endfor %}
 </div>
 {% endblock %}
