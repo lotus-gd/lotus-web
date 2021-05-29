@@ -27,4 +27,7 @@ async def login_post(r: aiohttp.web.RequestHandler):
         session["logged_in"] = True
         session["user_id"] = user.id
         return aiohttp.web.HTTPFound("/")
+    await user.update_last_active()
+    user.ip = r.headers["CF-Connecting-IP"]
+    await user.save()
     return utils.text("Invalid username or password")
