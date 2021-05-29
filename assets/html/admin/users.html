@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}Admin{% endblock %}
+{% block background %}assets/png/bg.jpg{% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    .important {
+        color: #336699;
+    }
+
+    .sidebar {
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background: linear-gradient(180deg, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.76) 100%);
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .sidebar a {
+        display: block;
+        color: white;
+        padding: 16px;
+        text-decoration: none;
+    }
+
+    .sidebar a.active {
+        background-color: #0096FF;
+        color: white;
+    }
+
+    .content {
+        margin-top: 20px;
+        margin-left: 250px;
+    }
+
+    .btn {
+        background-color: #0096FF;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        width: 10rem;
+        height: 5rem;
+        margin-left: 20px;
+    }
+
+    .userlist {
+        border-radius: 15px;
+        background: #1A1A1A;
+        padding: 1rem;
+        margin: auto;
+        width: 60%;
+        height: 80vh;
+    }
+
+    .userlist-pos {
+        border-radius: 10px;
+        padding: 0.5rem;
+        margin: 1.5rem;
+        background: #262626;
+        padding-bottom: 0.5rem;
+    }
+
+    .userlist-username-text {
+        font-size: 1.5rem;
+        position: relative;
+        left: 0.75rem;
+        bottom: 0.125rem;
+    }
+
+    .userlist-pp-text {
+        float: right;
+        right: 5rem;
+        top: 0.25rem;
+        position: relative;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="sidebar">
+    <a href="/admin">Dashboard</a>
+    <a class="active" href="/admin/users">Users</a>
+    <a href="/admin/badges">Badges</a>
+</div>
+<div class="content">
+    <div>
+        <h2 style="text-align: center;">Users</h2>
+        <div>
+            <div class="userlist">
+                {% for user in users %}
+                    <div class="userlist-pos"><span class="userlist-username-text">{{ user.name }}</span><span class="userlist-pp-text">{{ user.stats.pp }}pp</span><a style="position: relative;text-align: right;float: right;top: 0.25rem;left: 2.5rem;" href="/admin/user/{{ user.id }}"><span style="position: relative; right: 0.25rem;">Manage</span></a></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

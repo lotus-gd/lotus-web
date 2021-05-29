@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block background %}assets/png/bg.jpg{% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    .important {
+        color: #336699;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<h1>Index</h1>
+<p class="important">
+    Welcome to the login page.
+</p>
+<form class="modal-content animate" action="/login" method="post">
+    <div class="container">
+      <input type="text" placeholder="Username" name="username" required>
+
+      <input type="password" placeholder="Password" name="password" required>
+        
+      <button type="submit">Login</button>
+    </div>
+</form>
+{% endblock %}

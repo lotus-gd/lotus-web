@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block title %}Admin{% endblock %}
+{% block background %}assets/png/bg.jpg{% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    .important {
+        color: #336699;
+    }
+
+    .sidebar {
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background: linear-gradient(180deg, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.76) 100%);
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .sidebar a {
+        display: block;
+        color: white;
+        padding: 16px;
+        text-decoration: none;
+    }
+
+    .sidebar a.active {
+        background-color: #0096FF;
+        color: white;
+    }
+
+    .content {
+        margin-top: 20px;
+        margin-left: 250px;
+    }
+
+    .btn {
+        background-color: #0096FF;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        width: 5rem;
+        height: 2.5rem;
+        margin-left: 20px;
+    }
+
+    .userlist {
+        border-radius: 15px;
+        background: #1A1A1A;
+        padding: 1rem;
+        margin: auto;
+        width: 60%;
+        height: 80vh;
+    }
+
+    .userlist-pos {
+        border-radius: 10px;
+        padding: 0.5rem;
+        margin: 1.5rem;
+        background: #262626;
+        padding-bottom: 0.5rem;
+    }
+
+    .userlist-username-text {
+        font-size: 1.5rem;
+        position: relative;
+        left: 0.75rem;
+        bottom: 0.125rem;
+    }
+
+    .userlist-pp-text {
+        font-size: 1.5rem;
+        left: 7.5rem;
+        position: relative;
+    }
+
+    .userlist-pp-text-2 {
+        font-size: 1.5rem;
+        left: 12.5rem;
+        position: relative;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="sidebar">
+    <a href="/admin">Dashboard</a>
+    <a href="/admin/users">Users</a>
+    <a class="active" href="/admin/badges">Badges</a>
+</div>
+<div class="content">
+    <div>
+        <h2 style="text-align: center;">Badges</h2>
+        <a href="/admin/badges/create">
+            <div class="btn" style="float: right; position: relative; right: 5rem;">
+                <div>
+                    <p style="position: relative;top: 0.25rem;">New</p>
+                </div>
+            </div>
+        </a>
+        <div>
+            <div class="userlist">
+                <div class="userlist-pos"><span class="userlist-username-text">ID</span><span class="userlist-pp-text">Name</span><span class="userlist-pp-text-2">Colour</span></div>
+                {% for badge in badges %}
+                <div class="userlist-pos"><span class="userlist-username-text">{{ badge.id }}</span><span class="userlist-pp-text" style="left: 9rem;">{{ badge.title }}</span><span class="userlist-pp-text-2"  style="left: 15rem;">{{ badge.colour }}</span></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

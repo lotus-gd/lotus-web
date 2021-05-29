@@ -1,6 +1,7 @@
 {% extends "base.html" %}
-{% block title %}User{% endblock %}
+{% block title %}Rankings{% endblock %}
 {% block background %}assets/png/bg.jpg{% endblock %}
+{% block rankings %}navbar--layout-item-active{% endblock %}
 {% block head %}
 {{ super() }}
 <style type="text/css">
@@ -19,14 +20,14 @@
 
     .leaderboard-pos {
         border-radius: 10px;
-        padding: 1rem;
-        margin: 1.5rem;
+        padding: 0.5rem;
+        margin: 1rem;
         background: #262626;
-        padding-bottom: 1.1rem;
+        padding-bottom: 0.5rem;
     }
 
     .leaderboard-pos-text {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         float: left;
         position: relative;
         bottom: 0.5rem;
@@ -39,7 +40,7 @@
     }
 
     .leaderboard-username-text {
-        font-size: 1.25rem;
+        font-size: 1rem;
         position: relative;
         left: 0.75rem;
         bottom: 0.125rem;
@@ -47,8 +48,14 @@
 
     .leaderboard-pp-text {
         float: right;
-        top: 0.125rem;
+        right: 1rem;
         position: relative;
+    }
+
+    .leaderboard-flag {
+        height: 1.25rem;
+        margin-left: 10px;
+        float: left;
     }
 </style>
 {% endblock %}
@@ -57,7 +64,12 @@
 <div class="leaderboard">
     <p class="leaderboard-big-text">Leaderboard</p>
     {% for score in leaderboard_scores %}
-        <div class="leaderboard-pos"><span class="leaderboard-pos-text">#{{ loop.index }}</span><span class="leaderboard-username-text">{{ score.username }}</span><span class="leaderboard-pp-text">{{ score.pp }}pp</span></div>
+        <div class="leaderboard-pos">
+            <span class="leaderboard-pos-text">#{{ loop.index }}</span>
+            <img class="leaderboard-flag" src="https://osu.ppy.sh/images/flags/{{ score.country }}.png">
+            <span class="leaderboard-username-text">{{ score.name }}</span>
+            <span class="leaderboard-pp-text">{{ score.stats.stars }}*</span>
+        </div>
     {% endfor %}
 </div>
 {% endblock %}

@@ -59,6 +59,10 @@ a {
   font-size: 24px;
   color: #00AAFF;
 }
+.navbar--layout-login {
+  margin-right: 24px;
+  font-size: 24px;
+}
 .navbar--layout-item {
   width: 48px;
   height: 48px;
@@ -225,6 +229,15 @@ a {
 .navbar--search-active .navbar--search-field-container {
   display: inline-block;
 }
+
+.btn {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24px;
+  padding: .3rem .8rem;
+  letter-spacing: .5px;
+}
+
 /**
  * @license
  * MyFonts Webfont Build ID 3797987, 2019-08-16T07:07:19-0400
