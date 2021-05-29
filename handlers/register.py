@@ -21,6 +21,6 @@ async def register_post(r: aiohttp.web.RequestHandler):
     if not regex.match(".{1,}@[^.]{1,}", email):
         return aiohttp.web.HTTPBadRequest(reason="invalid email")
     
-    await Account.register(username, password, email, r.remote)
+    await Account.register(username, password, email, r.headers["X-Real-IP"])
     
     return aiohttp.web.HTTPFound("/")
