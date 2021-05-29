@@ -1,3 +1,4 @@
+import regex
 import aiohttp
 import utils # type: ignore
 from aiohttp_session import get_session
@@ -16,6 +17,9 @@ async def register_post(r: aiohttp.web.RequestHandler):
     username = data["username"]
     password = data["password"]
     email = data["email"]
+    
+    if not regex.match(".{1,}@[^.]{1,}", email):
+        return aiohttp.web.HTTPBadRequest(reason="invalid email")
     
     await Account.register(username, password, email, r.remote)
     
