@@ -11,4 +11,4 @@ async def index(r: aiohttp.web.RequestHandler):
         return aiohttp.web.HTTPForbidden()
     user = await userhelper.get_user(session["user_id"])
     if not "7" in str(user.privileges): return aiohttp.web.HTTPForbidden() # teach me how do do privileges relesto
-    return await utils.render_template(r, "admin.html", totalusers=await userhelper.get_total_users(), users=await userhelper.get_all_users(7))
+    return await utils.render_template(r, "admin.html", totalusers=await userhelper.get_total_users(), users=await userhelper.get_all_users(6))
