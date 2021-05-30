@@ -1,7 +1,7 @@
 import aiohttp
 import utils # type: ignore
 from aiohttp_session import get_session
-from common import userhelper # type: ignore
+from common.helpers import userhelper, geohelper # type: ignore
 
 async def login(r: aiohttp.web.RequestHandler):
     session = await get_session(r)
@@ -26,8 +26,9 @@ async def login_post(r: aiohttp.web.RequestHandler):
         session = await get_session(r)
         session["logged_in"] = True
         session["user_id"] = user.id
+        await user.update_last_active()
+        user.ip = r.headers.get("CF-Connecting-IP", "0.0.0.0")
+        user.country = await geohelper.get_country(user.ip)
+        await user.save()
         return aiohttp.web.HTTPFound("/")
-    await user.update_last_active()
-    user.ip = r.headers["CF-Connecting-IP"]
-    await user.save()
     return utils.text("Invalid username or password")
