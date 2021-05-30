@@ -1,6 +1,6 @@
 import aiohttp
-import utils
-from common import Account, leaderboardhelper, userhelper
+import utils # type: ignore
+from common import leaderboardhelper, userhelper # type: ignore
 
 async def rankings(r: aiohttp.web.RequestHandler):
     scores = await leaderboardhelper.get_top_100_stars()

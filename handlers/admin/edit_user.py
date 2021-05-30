@@ -1,17 +1,11 @@
 import aiohttp
 import utils # type: ignore
-from aiohttp_session import get_session
-from common.helpers import userhelper # type: ignore
-from common.objects.account import Account
+from common.objects.account import Account # type: ignore
+from common.helpers import privilegehelper # type: ignore
 
 async def edit_user(r: aiohttp.web.RequestHandler):
-    session = await get_session(r)
-    try:
-        if not session["user_id"]: return aiohttp.web.HTTPForbidden()
-    except KeyError:
+    if not await privilegehelper.logged_in(r) or not await privilegehelper.is_admin(r): 
         return aiohttp.web.HTTPForbidden()
-    user = await userhelper.get_user(session["user_id"])
-    if not "7" in str(user.privileges): return aiohttp.web.HTTPForbidden() # teach me how do do privileges relesto
     
     acc = await Account.from_sql(r.rel_url.query["id"])
     

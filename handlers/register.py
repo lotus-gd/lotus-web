@@ -1,16 +1,14 @@
 import regex
 import aiohttp
 import utils # type: ignore
-from aiohttp_session import get_session
 from common.objects.account import Account # type: ignore
+from common.helpers import privilegehelper # type ignore
 
 async def register(r: aiohttp.web.RequestHandler):
     return await utils.render_template(r, "register.html")
 
 async def register_post(r: aiohttp.web.RequestHandler):
-    session = await get_session(r)
-    session["logged_in"] = False
-    if session.get("logged_in"):
+    if await privilegehelper.logged_in(r):
         return aiohttp.web.HTTPFound("/")
     
     data = await r.post()
