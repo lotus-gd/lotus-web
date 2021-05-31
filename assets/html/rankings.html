@@ -15,15 +15,14 @@
         margin: auto;
         margin-top: 100px;
         width: 60%;
-        height: 75vh;
+        height: 165vh;
     }
 
     .leaderboard-pos {
         border-radius: 10px;
         padding: 0.5rem;
-        margin: 1rem;
+        margin: 0.75rem;
         background: #262626;
-        padding-bottom: 0.5rem;
     }
 
     .leaderboard-pos-text {
@@ -36,7 +35,7 @@
     .leaderboard-big-text {
         font-size: 2.5rem;
         text-align: center;
-        padding: 1rem;
+        padding: 0.25rem;
     }
 
     .leaderboard-username-text {
@@ -64,12 +63,16 @@
 <div class="leaderboard">
     <p class="leaderboard-big-text">Leaderboard</p>
     {% for score in leaderboard_scores %}
+        {% if not loop.index > 25 %}
         <div class="leaderboard-pos">
             <span class="leaderboard-pos-text">#{{ loop.index }}</span>
             <img class="leaderboard-flag" src="https://osu.ppy.sh/images/flags/{{ score.country }}.png">
             <span class="leaderboard-username-text">{{ score.name }}</span>
             <span class="leaderboard-pp-text">{{ score.stats.stars }}*</span>
         </div>
+        {% endif %}
     {% endfor %}
+    {% if page > 0 %}<a href="/rankings?page={{ page-1 }}"><span style="float: left; position: relative; left: 1rem; font-size: 1.5rem;">Prev</span></a>{% endif %}
+    <a href="/rankings?page={{ page+1 }}"><span style="float: right; position: relative; right: 1.5rem; font-size: 1.5rem;">Next</span></a>
 </div>
 {% endblock %}
