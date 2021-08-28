@@ -8,5 +8,5 @@ async def index(r: aiohttp.web.RequestHandler):
     
     return await utils.render_template(r, "admin.html",
                                        totalusers=await userhelper.get_total_users(),
-                                       users=await userhelper.get_all_users(6),
+                                       users=await userhelper.get_all_users(12),
                                        totallevels=await levelhelper.get_total_levels())

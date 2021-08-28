@@ -21,15 +21,15 @@
     .leaderboard-pos {
         border-radius: 10px;
         padding: 0.5rem;
-        margin: 0.75rem;
+        margin: 0.5rem;
         background: #262626;
     }
 
     .leaderboard-pos-text {
-        font-size: 1.5rem;
+        font-size: 1rem;
         float: left;
         position: relative;
-        bottom: 0.5rem;
+        vertical-align: middle;
     }
 
     .leaderboard-big-text {
@@ -42,13 +42,14 @@
         font-size: 1rem;
         position: relative;
         left: 0.75rem;
-        bottom: 0.125rem;
+        vertical-align: middle;
     }
 
     .leaderboard-pp-text {
         float: right;
         right: 1rem;
         position: relative;
+        font-size: 0.9rem;
     }
 
     .leaderboard-flag {
@@ -65,7 +66,7 @@
     {% for score in leaderboard_scores %}
         {% if not loop.index > 25 %}
         <div class="leaderboard-pos">
-            <span class="leaderboard-pos-text">#{{ loop.index }}</span>
+            <span class="leaderboard-pos-text">#{{ loop.index + page*25 }}</span>
             <img class="leaderboard-flag" src="https://osu.ppy.sh/images/flags/{{ score.country }}.png">
             <span class="leaderboard-username-text">{{ score.name }}</span>
             <span class="leaderboard-pp-text">{{ score.stats.stars }}*</span>
