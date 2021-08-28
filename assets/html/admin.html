@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block title %}Admin{% endblock %}
-{% block background %}assets/png/bg.jpg{% endblock %}
+{% block background %}/assets/png/bg2.jpg{% endblock %}
+{% block admin %}navbar--layout-item-active{% endblock %}
 {% block head %}
 {{ super() }}
+
 <style type="text/css">
     .important {
         color: #336699;
@@ -88,6 +90,7 @@
 </style>
 {% endblock %}
 {% block content %}
+{{ super() }}
 <div class="sidebar">
     <a class="active" href="/admin">Dashboard</a>
     <a href="/admin/users">Users</a>
