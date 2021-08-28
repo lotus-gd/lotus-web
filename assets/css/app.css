@@ -18,8 +18,8 @@ a {
   text-decoration: none;
 }
 .base--bg {
-  position: absolute;
-  top: 0;
+  bottom: 5rem;
+  position: fixed;
   width: 100%;
   height: 90%;
   z-index: -9999;
