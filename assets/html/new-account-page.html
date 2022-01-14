@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block background %}/assets/png/temp-bg.jpg{% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    .important {
+        color: #336699;
+    }
+    accstuff.border{
+        border-style: dashed;
+    }
+    .vertline {
+  border-left: 6px solid rgba(255, 255, 255, 0.836);
+  height: 250px;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
+}
+button.submit {
+    border-radius: 2px;
+    }
+</style>
+{% endblock %}
+{% block content %}
+{{ super() }}
+<div class="accstuff">
+<!---
+    FIXME: this is broken as I ran out of time (thanks to my totally smart daily schedule), don't pull to live site yet until github issue is closed.
+    -Becca (Electro)
+-->
+<center>
+<h1>Account</h1>
+<p class="important">
+    Please enter your credentials below.
+</p>
+<form class="modal-content animate" action="/login" method="post">
+    <div class="container">
+      <input type="text" placeholder="Username" name="username" required>
+
+      <input type="password" placeholder="Password" name="password" required>
+      <button type="submit">Login</button>
+    </div>
+    </form>
+    <div class="vertline"></div>
+    <form class="modal-content animate" action="/register" method="post">
+    <input type="hidden" name="referrer" value="{{ referrer }}">
+    <div class="container">
+      <input type="text" placeholder="Username" name="username" required>
+
+      <input type="password" placeholder="Password" name="password" required>
+
+      <input type="text" placeholder="knockout@spoo.uk" name="email" required>
+</form>
+</center>
+</div>
+{% endblock %}
