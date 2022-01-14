@@ -22,7 +22,8 @@ async def login_post(r: aiohttp.web.RequestHandler):
     password = data["password"]
     
     user = await userhelper.get_user_by_name(username)
-    if user.compare_pass(password):
+        
+    if not user or user.compare_pass(password): # if user doesn't exist or password is incorrect (don't tell the user which)
         session = await get_session(r)
         session["logged_in"] = True
         session["user_id"] = user.id
