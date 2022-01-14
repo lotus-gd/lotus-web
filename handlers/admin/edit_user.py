@@ -25,4 +25,4 @@ async def edit_user(r: aiohttp.web.RequestHandler):
         
     await acc.stats.save()
     await acc.save()
-    return utils.text("a")
+    return aiohttp.web.HTTPOk()
