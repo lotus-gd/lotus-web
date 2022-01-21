@@ -17,15 +17,9 @@
     function updateValues() {
         var params = {
             name: document.getElementsByClassName("name")[0].textContent,
-            id: document.getElementsByClassName("id")[0].textContent,
             email: document.getElementsByClassName("email")[0].textContent,
             country: document.getElementsByClassName("country")[0].textContent,
-            privileges: document.getElementsByClassName("privileges")[0].textContent,
-            pp: document.getElementsByClassName("pp")[0].textContent,
-            stars: document.getElementsByClassName("stars")[0].textContent,
-            coins: document.getElementsByClassName("coins")[0].textContent,
-            u_coins: document.getElementsByClassName("u_coins")[0].textContent,
-            demons: document.getElementsByClassName("demons")[0].textContent
+            privileges: document.getElementsByClassName("privileges")[0].textContent
         }
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open("GET", "/admin/edit_user"+formatParams(params), true); // false for synchronous request
@@ -128,15 +122,15 @@
         <div>
             <div class="userlist">
                 <div class="userlist-pos"><span class="userlist-username-text">Username</span><span class="userlist-pp-text name" contentEditable="true">{{ viewed_user.name }}</span></div>
-                <div class="userlist-pos"><span class="userlist-username-text">ID</span><span class="userlist-pp-text id" contentEditable="true">{{ viewed_user.id }}</span></div>
+                <div class="userlist-pos"><span class="userlist-username-text">ID</span><span class="userlist-pp-text id" contentEditable="false">{{ viewed_user.id }}</span></div>
                 <div class="userlist-pos"><span class="userlist-username-text">Email</span><span class="userlist-pp-text email" contentEditable="true">{{ viewed_user.email }}</span></div>
                 <div class="userlist-pos"><span class="userlist-username-text">Country</span><span class="userlist-pp-text country" contentEditable="true">{{ viewed_user.country }}</span></div>
                 <div class="userlist-pos"><span class="userlist-username-text">Privileges<span><span class="userlist-pp-text privileges" style="position: relative; right: 1rem;" contentEditable="true">{{ viewed_user.privileges }}</span></div>
-                <div class="userlist-pos"><span class="userlist-username-text">pp</span><span class="userlist-pp-text pp" contentEditable="true">{{ viewed_user.stats.pp }}pp</span></div>
-                <div class="userlist-pos"><span class="userlist-username-text">Stars</span><span class="userlist-pp-text stars" contentEditable="true">{{ viewed_user.stats.stars }}</span></div>
-                <div class="userlist-pos"><span class="userlist-username-text">Coins</span><span class="userlist-pp-text coins" contentEditable="true">{{ viewed_user.stats.coins }}</span></div>
-                <div class="userlist-pos"><span class="userlist-username-text">User coins</span><span class="userlist-pp-text u_coins" contentEditable="true">{{ viewed_user.stats.u_coins }}</span></div>
-                <div class="userlist-pos"><span class="userlist-username-text">Demons</span><span class="userlist-pp-text demons" contentEditable="true">{{ viewed_user.stats.demons }}</span></div>
+                <div class="userlist-pos"><span class="userlist-username-text">pp</span><span class="userlist-pp-text pp" contentEditable="false">{{ viewed_user.stats.pp }}pp</span></div>
+                <div class="userlist-pos"><span class="userlist-username-text">Stars</span><span class="userlist-pp-text stars" contentEditable="false">{{ viewed_user.stats.stars }}</span></div>
+                <div class="userlist-pos"><span class="userlist-username-text">Coins</span><span class="userlist-pp-text coins" contentEditable="false">{{ viewed_user.stats.coins }}</span></div>
+                <div class="userlist-pos"><span class="userlist-username-text">User coins</span><span class="userlist-pp-text u_coins" contentEditable="false">{{ viewed_user.stats.u_coins }}</span></div>
+                <div class="userlist-pos"><span class="userlist-username-text">Demons</span><span class="userlist-pp-text demons" contentEditable="false">{{ viewed_user.stats.demons }}</span></div>
             </div>
         </div>
     </div>
