@@ -13,7 +13,7 @@ port = 6942
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
-app = aiohttp.web.Application()#loop= globals.loop)
+app = aiohttp.web.Application(middlewares=[router.error_middleware])
 templates = aiohttp_jinja2.setup(app, loader=jinja2.FileSystemLoader("assets/html"))
 
 app.router.add_static("/assets/", path="./assets/", name="assets")

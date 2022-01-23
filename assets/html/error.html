@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{code}} {{message}}{% endblock %}
+{% block background %}/assets/png/temp-bg.jpg{% endblock %}
+{% block navbar %}{% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    .important {
+        color: #336699;
+    }
+
+    .error-text-center {
+        position: absolute; text-align: center; width: 100%; left: 0px;
+    }
+</style>
+{% endblock %}
+{% block content %}
+{{ super() }}
+<p class="error-text-center" style="top: 15%; font-size: 3rem;">Error: {{code}} {{message}}</p>
+{% if not code in (404, 200) %}
+<p class="error-text-center" style="top: 25%; font-size: 1.5rem;">Please report this issue to the devs.</p>
+{% else %}
+<p class="error-text-center" style="top: 25%; font-size: 1.5rem;">Would you like to go back to the <a href="/" style="color: #0000EE;">homepage?</a></p>
+{% endif %}
+{% endblock %}

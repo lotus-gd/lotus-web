@@ -1,6 +1,26 @@
 import aiohttp
 import importlib
 
+@aiohttp.web.middleware
+async def error_middleware(r, handler):
+    import utils
+    message = ""
+    try:
+        response = await handler(r)
+        
+        if response.status == 200:
+            return response
+        
+        code = response.status
+        message = response.reason
+    except aiohttp.web.HTTPException as e:
+        if e.status == 500:
+            raise
+        code = e.status
+        message = e.reason
+    
+    return await utils.render_template(r, f"error.html", code=code, message=message)
+
 routes = {"/": "index",
           "/users/{username}": "user",
           "/rankings": "rankings",

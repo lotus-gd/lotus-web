@@ -1,5 +1,5 @@
 import aiohttp
-from web import templates # type: ignore
+from main import templates # type: ignore
 from aiohttp_session import get_session
 from common.helpers import userhelper, privilegehelper # type: ignore
 
