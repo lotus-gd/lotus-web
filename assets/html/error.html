@@ -17,9 +17,11 @@
 {% block content %}
 {{ super() }}
 <p class="error-text-center" style="top: 15%; font-size: 3rem;">Error: {{code}} {{message}}</p>
-{% if not code in (404, 200) %}
-<p class="error-text-center" style="top: 25%; font-size: 1.5rem;">Please report this issue to the devs.</p>
-{% else %}
+{% if code == 404 %}
 <p class="error-text-center" style="top: 25%; font-size: 1.5rem;">Would you like to go back to the <a href="/" style="color: #0000EE;">homepage?</a></p>
+{% elif code == 501 %}
+<p class="error-text-center" style="top: 25%; font-size: 1.5rem;">This feature is not implemented yet.</p>
+{% else %}
+<p class="error-text-center" style="top: 25%; font-size: 1.5rem;">Please report this issue to the devs.</p>
 {% endif %}
 {% endblock %}

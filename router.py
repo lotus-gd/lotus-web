@@ -1,5 +1,6 @@
 import aiohttp
 import importlib
+from traceback import print_exc
 
 @aiohttp.web.middleware
 async def error_middleware(r, handler):
@@ -14,10 +15,12 @@ async def error_middleware(r, handler):
         code = response.status
         message = response.reason
     except aiohttp.web.HTTPException as e:
-        if e.status == 500:
-            raise
         code = e.status
         message = e.reason
+    except Exception as e:
+        print_exc()
+        code = 500
+        message = "Internal Server Error"
     
     return await utils.render_template(r, f"error.html", code=code, message=message)
 
