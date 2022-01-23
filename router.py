@@ -9,7 +9,7 @@ async def error_middleware(r, handler):
     try:
         response = await handler(r)
         
-        if response.status == 200:
+        if response.status in (200, 302):
             return response
         
         code = response.status

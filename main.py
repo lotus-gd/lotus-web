@@ -24,7 +24,7 @@ async def async_main() -> None:
     await globals.startup_init()
 
 def main():
-    #fernet_key = fernet.Fernet.generate_key()
+    # key to store cookies
     fernet_key = b"jWksJ7QjlsrE3IRcssxcdoYApAK6qGwYOlAbMzvpQ6g="
     secret_key = base64.urlsafe_b64decode(fernet_key)
     setup(app, EncryptedCookieStorage(secret_key))
