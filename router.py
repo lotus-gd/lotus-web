@@ -36,6 +36,7 @@ routes = {"/": "index",
           "/admin": "admin/index",
           "/admin/users": "admin/users",
           "/admin/user/{id}": "admin/user",
+          "_/admin/user": "admin/user_post",
           "/admin/badges": "admin/badges",
           "/admin/badges/create": "admin/create_badge",
           "/admin/edit_user": "admin/edit_user"}

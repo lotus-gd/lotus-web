@@ -57,7 +57,7 @@
         margin: auto;
         width: 60%;
         height: 125vh;
-        margin-bottom: 3rem;
+        margin-bottom: 10rem;
     }
 
     .userlist-pos {
@@ -129,6 +129,10 @@
                 {% endfor %}
             </div>
         </div>
+        <form action="/admin/user" method="post" style="display:flex;justify-content:center;align-items:flex-end;position:relative; bottom:10vh;">
+            <input type="text" id="id" name="id">
+            <input type="submit" value="Search">
+        </form>
     </div>
 </div>
 {% endblock %}
