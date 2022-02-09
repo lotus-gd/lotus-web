@@ -25,7 +25,7 @@ async def async_main() -> None:
 
 def main():
     # key to store cookies
-    fernet_key = b"jWksJ7QjlsrE3IRcssxcdoYApAK6qGwYOlAbMzvpQ6g="
+    fernet_key = open("fernet_key", "rb").read()
     secret_key = base64.urlsafe_b64decode(fernet_key)
     setup(app, EncryptedCookieStorage(secret_key))
     router.add_all_routes(app)
