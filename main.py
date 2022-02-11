@@ -7,6 +7,7 @@ from aiohttp_session import setup
 from aiohttp_session.cookie_storage import EncryptedCookieStorage
 import router
 import os
+import pyfiglet
 from common import globals
 
 port = 6942
@@ -24,6 +25,9 @@ async def async_main() -> None:
     await globals.startup_init()
 
 def main():
+    print(pyfiglet.figlet_format("Lotus-web"))
+    print("Starting server...")
+
     # key to store cookies
     fernet_key = open("fernet_key", "rb").read()
     secret_key = base64.urlsafe_b64decode(fernet_key)

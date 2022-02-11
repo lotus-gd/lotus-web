@@ -25,7 +25,7 @@ async def error_middleware(r, handler):
     return await utils.render_template(r, f"error.html", code=code, message=message)
 
 routes = {"/": "index",
-          "/users/{username}": "user",
+          "/users/{id}": "user",
           "/rankings": "rankings",
           "/level/{levelname}": "level",
           "/search": "search",
