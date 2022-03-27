@@ -1,10 +1,2 @@
 # Welcome to the official repo for the Lotus Project website!
-
-you should probably go check the website out lmao [whenever it's done, that is](https://c.ussr.pl/)
-
-Repo card if you wanna add it to your profile:
-
-![Repo Card](https://github-readme-stats.vercel.app/api/pin?username=lotus-gd&repo=lotus-web&title_color=fff&icon_color=f9f9f9&text_color=9f9f9f&bg_color=30,e96443,904e95)
-```
-![Repo Card](https://github-readme-stats.vercel.app/api/pin?username=lotus-gd&repo=lotus-web&title_color=fff&icon_color=f9f9f9&text_color=9f9f9f&bg_color=30,e96443,904e95)
-```
+This repo is used to store the source code for the website utilized by lotus. we do not suggest trying to run a local copy of this on your own because this is still under heavy development, but this readme will be updated at some point to guide you thru setting a fork up and also list the file hierarchy for easier understanding of what goes where.
